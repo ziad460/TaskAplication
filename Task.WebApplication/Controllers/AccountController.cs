@@ -28,7 +28,7 @@ namespace Task.WebApplication.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Register()
         {
             ViewData["roles"] = new SelectList(roleManager.Roles, "Name", "Name");
@@ -37,7 +37,7 @@ namespace Task.WebApplication.Controllers
 
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Register(RegisterDto model)
         {
             if (ModelState.IsValid)

@@ -20,7 +20,7 @@
                     <td>
                         @foreach (var item in Model[i].QuestionsAnswers)
                         {
-                            <input type="radio" required name="QuestionAnswer" Value="@item.Answer.AnswerText" /> @item.Answer.AnswerText <br />
+                            <input type="radio" required name="QuestionAnswer_@i" Value="@item.Answer.AnswerText" /> @item.Answer.AnswerText <br />
                         }
                     </td>
                     <td>

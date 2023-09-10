@@ -14,6 +14,7 @@ namespace Task.Infrastructure.ExamRepository
         Task<Exam> GetExamsById(int Id);
         Task<Exam> AddExamAsync(Exam exam);
         Task<int> UpdateExamAsync(Exam exam);
+        Task<int> UpdateStudentExam(ExamStudents exam);
         Task<List<Question>> GetQuestionsByExamId(int examId);
         Task<Question> AddQuestionToExam(Question question);
         Task<int> EditQuestionToExam(Question question);

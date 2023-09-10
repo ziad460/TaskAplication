@@ -63,9 +63,11 @@ namespace Task.Services.StudentService
                     mark += answe.Question.Mark;
                 }
             }
-            ExamStudents examStudent = new ExamStudents { CreatedDate = DateTime.Now, ExamId = examId, ObtainedMarks = mark , StudentId = user.Id };
-            var student = await _examRepository.AddStudentToExam(examStudent);
-            return student;
+            var examstudent = await _studentRepository.GetUserExams(user.Id);
+            var exam = examstudent.FirstOrDefault(x => x.ExamId == examId);
+            exam.ObtainedMarks = mark;
+            await _examRepository.UpdateStudentExam(exam);
+            return exam;
         }
     }
 }

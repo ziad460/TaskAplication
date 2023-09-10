@@ -137,7 +137,10 @@ namespace Task.Infrastructure.ExamRepository
             return await _unityOfWork.GetRepository<Answer>().FindAsync(x => x.Id == answerId);
         }
 
-
-
+        public async Task<int> UpdateStudentExam(ExamStudents exam)
+        {
+            _unityOfWork.GetRepository<ExamStudents>().UpdateOne(exam);
+            return await _unityOfWork.CompleteAsync();
+        }
     }
 }

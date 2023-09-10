@@ -48,9 +48,9 @@ namespace Task.WebApplication.Controllers
             for (int i = 0; i < examAnswersDtos["QuestionId"].Count; i++)
             {
                 ExamAnswersDto exDto = new ExamAnswersDto();
-                exDto.QuestionId = Convert.ToInt32(examAnswersDtos["QuestionId"][i]);
-                exDto.QuestionAnswer = examAnswersDtos["QuestionAnswer"][i];
-                exDto.UserName = examAnswersDtos["UserName"][i];
+                exDto.QuestionId = Convert.ToInt32(examAnswersDtos["QuestionId"][0]);
+                exDto.QuestionAnswer = examAnswersDtos[$"QuestionAnswer_{i}"][0];
+                exDto.UserName = examAnswersDtos["UserName"][0];
                 examAnswersDto.Add(exDto);
             }
             await _studentService.SubmitExamToStudent(examAnswersDto , examId);
