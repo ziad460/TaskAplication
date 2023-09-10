@@ -1,0 +1,42 @@
+﻿@model List<Question>
+
+@{
+    ViewData["Title"] = "StartStudentExam";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @User.Identity.Name</h1>
+    <p>Exam Start </p>
+</div>
+<form asp-action="StartStudentExam" asp-route-examId="@Model[0].ExamId" method="post">
+    <table class="table table-bordered table-striped">
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>Q @i</td>
+                    <td>@Model[i].Text</td>
+                    <td>
+                        @foreach (var item in Model[i].QuestionsAnswers)
+                        {
+                            <input type="radio" required name="QuestionAnswer" Value="@item.Answer.AnswerText" /> @item.Answer.AnswerText <br />
+                        }
+                    </td>
+                    <td>
+                        <input type="hidden" name="QuestionId" value="@Model[i].Id">
+                        <input type="hidden" name="UserName" value="@User.Identity.Name">
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="submit" class="btn-primary" value="Submit"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

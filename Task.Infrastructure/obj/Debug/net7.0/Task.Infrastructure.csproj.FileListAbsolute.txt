@@ -1,0 +1,15 @@
+D:\Projects\Task.WebApplication\Task.Infrastructure\bin\Debug\net7.0\Task.Infrastructure.deps.json
+D:\Projects\Task.WebApplication\Task.Infrastructure\bin\Debug\net7.0\Task.Infrastructure.dll
+D:\Projects\Task.WebApplication\Task.Infrastructure\bin\Debug\net7.0\Task.Infrastructure.pdb
+D:\Projects\Task.WebApplication\Task.Infrastructure\bin\Debug\net7.0\Task.Core.dll
+D:\Projects\Task.WebApplication\Task.Infrastructure\bin\Debug\net7.0\Task.Core.pdb
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.AssemblyInfo.cs
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.csproj.CopyComplete
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.dll
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\refint\Task.Infrastructure.dll
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\Task.Infrastructure.pdb
+D:\Projects\Task.WebApplication\Task.Infrastructure\obj\Debug\net7.0\ref\Task.Infrastructure.dll

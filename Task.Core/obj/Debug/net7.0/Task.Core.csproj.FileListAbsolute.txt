@@ -1,0 +1,14 @@
+D:\Projects\Task.WebApplication\Task.Core\bin\Debug\net7.0\Task.Core.deps.json
+D:\Projects\Task.WebApplication\Task.Core\bin\Debug\net7.0\Task.Core.runtimeconfig.json
+D:\Projects\Task.WebApplication\Task.Core\bin\Debug\net7.0\Task.Core.dll
+D:\Projects\Task.WebApplication\Task.Core\bin\Debug\net7.0\Task.Core.pdb
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.csproj.AssemblyReference.cache
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.AssemblyInfoInputs.cache
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.AssemblyInfo.cs
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.csproj.CoreCompileInputs.cache
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.dll
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\refint\Task.Core.dll
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.pdb
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\Task.Core.genruntimeconfig.cache
+D:\Projects\Task.WebApplication\Task.Core\obj\Debug\net7.0\ref\Task.Core.dll

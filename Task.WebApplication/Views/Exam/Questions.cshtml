@@ -1,0 +1,151 @@
+﻿@model List<Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@Html.Partial("_AddQuestion" , new Question{ ExamId = ViewBag.ExamId })
+
+<table class="table" id="pageTable">
+    <thead>
+        <tr>
+            <th>Question Number</th>
+            <th>Qusetion Type</th>
+            <th>Question Text</th>
+            <th>Question Mark</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.QuestionType</td>
+                <td>@item.Text</td>
+                <td>@item.Mark</td>
+                <td>
+                    @Html.Partial("_EditQuestion", item)
+                    <a asp-action="RemoveQuestion" asp-route-questionId="@item.Id" asp-route-ExamId="@item.ExamId" class="btn btn-danger">Remove Question</a>
+                    @Html.Partial("_QuestionAnswers",item.QuestionsAnswers)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).on('change', '#QuestionType', function () {
+            let selectValue = $("#QuestionType").val();
+            var counter = $('#modalTable tr').length;
+            if (selectValue == 0) {
+                $("#answerTable tr").remove();
+                $('#answerTable').append(`<tr>
+                                    <th class='text-center px-2'>AnswerText</th>
+                                    <th class='text-center px-2'>Is Correct</th>
+                                </tr>
+                                <tr>
+                                    <td class='text-center px-2'>
+                                        <input type="text" class="form-control" disabled value="False" />
+                                        <input type="hidden" class="form-control" required value="True" name="QuestionText1" placeholder="Answer 1 text" />
+                                    </td>
+                                    <td class='text-center px-2'>
+                                        <input type="radio" required name="IsCorrect" Value="Q1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='text-center px-2'>
+                                        <input type="text" class="form-control" disabled value="False" />
+                                        <input type="hidden" class="form-control" required value="False" name="QuestionText2" placeholder="Answer 2 text" />
+                                    </td>
+                                    <td class='text-center px-2'>
+                                        <input type="radio" required name="IsCorrect" Value="Q2" />
+                                    </td>
+                                </tr>`);
+            }
+            else if (selectValue == 2) {
+                $("#answerTable tr").remove();
+                $('#answerTable').append(`<tr>
+                                        <th class='text-center px-2'>AnswerText</th>
+                                        <th class='text-center px-2'>Is Correct</th>
+                                    </tr>
+                                    <tr>
+                                        <td class='text-center px-2'>
+                                            <input type="text" class="form-control" required name="QuestionText1" placeholder="Answer 1 text" />
+                                        </td>
+                                        <td class='text-center px-2'>
+                                            <input type="radio" required name="IsCorrect" Value="Q1"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='text-center px-2'>
+                                            <input type="text" class="form-control" required name="QuestionText2" placeholder="Answer 2 text" />
+                                        </td>
+                                        <td class='text-center px-2'>
+                                            <input type="radio" required name="IsCorrect" Value="Q2" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='text-center px-2'>
+                                            <input type="text" class="form-control" required name="QuestionText3" placeholder="Answer 3 text" />
+                                        </td>
+                                        <td class='text-center px-2'>
+                                            <input type="radio" required name="IsCorrect" Value="Q3"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='text-center px-2'>
+                                            <input type="text" class="form-control" required name="QuestionText4" placeholder="Answer 4 text" />
+                                        </td>
+                                        <td class='text-center px-2'>
+                                            <input type="radio" required name="IsCorrect" Value="Q4" />
+                                        </td>
+                                    </tr>
+                                    `);
+            }
+            else if (selectValue == 4) {
+                $("#answerTable tr").remove();
+                $('#answerTable').append(`<tr>
+                                        <th class='text-center px-2'>AnswerText</th>
+                                        <th class='text-center px-2'>Is Correct</th>
+                                    </tr>
+                                    <tr>
+                                        <td class='text-center px-2'>
+                                            <input type="text" class="form-control" required name="QuestionText1" placeholder="Answer text" />
+                                        </td>
+                                        <td class='text-center px-2'>
+                                            <input type="radio" required name="IsCorrect" Value="Q1"/>
+                                        </td>
+                                    </tr>
+                                    `);
+            }
+            else {
+                $("#answerTable tr").remove();
+                $('#answerTable').append(`<tr>
+                                        <th class='text-center px-2'>AnswerText</th>
+                                        <th class='text-center px-2'>Is Correct</th>
+                                    </tr>
+                                    <tr>
+                                        <td class='text-center px-2'>
+                                            <textarea type="text" class="form-control" required name="QuestionText1" placeholder="Answer text"></textarea>
+                                        </td>
+                                        <td class='text-center px-2'>
+                                            <input type="radio" required name="IsCorrect" Value="Q1"/>
+                                        </td>
+                                    </tr>
+                                    `);
+            }
+        });
+        $(document).ready(function () {
+            $('#QuestionType').trigger('change');
+        });
+    </script>
+
+}

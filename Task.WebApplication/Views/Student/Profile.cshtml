@@ -1,0 +1,33 @@
+﻿@model List<ExamStudents>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @User.Identity.Name</h1>
+    <p>Here is you can go to exams </p>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Exam Title</th>
+            <th>Exam Grade</th>
+            <th>User Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Exam.Title</td>
+                <td>@item.Exam.TotalMarks</td>
+                <td>@item.ObtainedMarks</td>
+                <td>
+                    <a asp-action="StartStudentExam" asp-route-id="@item.ExamId" class="btn btn-primary">Start Exam</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

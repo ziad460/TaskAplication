@@ -1,0 +1,46 @@
+﻿@model Question
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa_@Model.Id">
+    Edit Question
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModa_@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="EditQuestion" asp-controller="Exam" method="post">
+                <div class="modal-body">
+                    <input type="hidden" asp-for="ExamId" />
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Text">Question Body</label>
+                        <input asp-for="Text" class="form-control" />
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mark">Question Mark</label>
+                        <input asp-for="Mark" class="form-control" />
+                        <span asp-validation-for="Mark" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="QuestionType">Question Type</label>
+                        <select asp-for="QuestionType" class="form-control" asp-items="Html.GetEnumSelectList<QuestionType>()"> </select>
+                        <span asp-validation-for="QuestionType" class="text-danger"></span>
+                    </div>
+
+                    <table class="table align-content-center" id="answerTableEdit">
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

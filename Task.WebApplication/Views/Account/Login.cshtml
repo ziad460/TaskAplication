@@ -1,0 +1,45 @@
+﻿@model LoginDto
+
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<h1>User LogIn</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="LogIn" asp-controller="Account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="UserName">User Name</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Phone Number</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="RememberMe" class="input-checkbox">
+                <label class="label-checkbox" asp-for="RememberMe">
+                    Remember me
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">LogIn</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

@@ -1,0 +1,67 @@
+﻿@model List<Exam>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a asp-action="AddExam" class="btn btn-primary">
+    Add Exam
+</a>
+
+<table class="table" id="pageTable">
+    <thead>
+        <tr>
+            <th>Exam Number</th>
+            <th>Exam Title</th>
+            <th>Exam Duration</th>
+            <th>Exam Teacher</th>
+            <th>Exam Questions</th>
+            <th>Assign Student To Exam</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Duration</td>
+                <td>@item.Teacher.FirstName @item.Teacher.LastName</td>
+                <td>
+                    <a asp-action="Questions" asp-route-examId="@item.Id">Exam Questions</a>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_@item.Id">
+                        Assign Students
+                    </button>
+                </td>
+            </tr>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal_@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form asp-action="AssignStudents" asp-controller="Exam" asp-route-examId="@item.Id" method="post">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="students">Question Type</label>
+                                    <select name="students" id="students" class="form-control" multiple asp-items="@ViewBag.students"> </select>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Assign</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </tbody>
+</table>

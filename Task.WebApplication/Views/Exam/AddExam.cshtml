@@ -1,0 +1,51 @@
+﻿@model Exam
+@{
+    ViewData["Title"] = "AddExam";
+}
+
+<h1>Add Exam</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddExam" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Title">Exam Title</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TotalMarks">Tatal Mark</label>
+                <input asp-for="TotalMarks" class="form-control" />
+                <span asp-validation-for="TotalMarks" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Duration">Duration In Minuts</label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeacherId">Exam Teacher</label>
+                <select asp-for="TeacherId" class="form-control" asp-items="@ViewBag.Teachers"></select>
+                <span asp-validation-for="TeacherId" class="text-danger"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
